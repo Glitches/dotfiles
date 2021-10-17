@@ -1,3 +1,10 @@
 /nvim/plugged
 /nvim/plugin
 /nvim/autoload
+/nvim/darktable
+
+!/nvim/darktable/shortcutsrc.edit
+!/nvim/darktable/shortcutsrc.defaults
+!/nvim/darktable/shortcutsrc.backup
+!/nvim/darktable/user.css
+!/nvim/darktable/darktablerc
