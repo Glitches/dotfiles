@@ -1,9 +1,7 @@
--- vim.g.mapleader = ","
 local u = require("utils")
 
 vim.o.background = "dark" -- or "light" for light mode
 vim.cmd([[colorscheme gruvbox]])
-
 
 vim.g.mapleader = ","
 
@@ -29,7 +27,7 @@ vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 vim.opt.timeoutlen = 300
 vim.opt.shortmess:append("cA")
-vim.opt.clipboard:append("unnamedplus")
+-- vim.opt.clipboard:append("unnamedplus")
 
 _G.global = {}
 

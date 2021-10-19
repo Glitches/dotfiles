@@ -118,6 +118,6 @@ return packer.startup(function()
         cmd = "MarkdownPreview",
     })
 
-    use_with_config("mhartington/formatter.nvim", "formatter") -- formatter
+    -- use_with_config("mhartington/formatter.nvim", "formatter") -- formatter
 end)
 

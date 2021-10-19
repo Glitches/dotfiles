@@ -3,16 +3,16 @@ local cmp = require("lsp.cmp")
 local u = require("utils")
 
 local ts_utils_settings = {
-    -- debug = true,
+    debug = true,
     enable_import_on_completion = true,
     import_all_scan_buffers = 100,
     eslint_bin = "eslint_d",
     eslint_enable_diagnostics = true,
     eslint_opts = {
         condition = function(utils)
-            return utils.root_has_file(".eslintrc.js")
+            return utils.root_has_file(".eslintrc.js") or utils.root_has_file(".eslintrc.json")
         end,
-        diagnostics_format = "#{m} [#{c}]",
+        diagnostics_format = "#{m} [#{c}]"
     },
     enable_formatting = true,
     formatter = "eslint_d",
