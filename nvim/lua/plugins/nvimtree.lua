@@ -1,4 +1,9 @@
 local nvim_tree = require("nvim-tree")
+local u = require("utils")
+
+u.nmap("<F3>", ":NvimTreeToggle<CR>")
+u.nmap("<F2>", ":NvimTreeRefresh<CR>")
+u.nmap("<F4>", ":NvimTreeFindFile<CR>")
 
 nvim_tree.setup {
     -- disables netrw completely

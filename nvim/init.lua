@@ -3,6 +3,7 @@ local u = require("utils")
 vim.o.background = "dark" -- or "light" for light mode
 vim.cmd([[colorscheme gruvbox]])
 
+
 vim.g.mapleader = ","
 
 vim.opt.completeopt = { "menuone", "noinsert" }

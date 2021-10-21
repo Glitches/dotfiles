@@ -5,13 +5,14 @@ table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 local u = require("utils")
 
-local root = vim.fn.getenv("HOME") .. "/git/lua-language-server/"
-local binary = root .. "bin/linux/lua-language-server"
+local root = vim.fn.getenv("HOME") .. "/.config/nvim/lua-language-server/"
+local binary = root .. "bin/Linux/lua-language-server"
 local settings = {
     Lua = {
         runtime = { version = "LuaJIT", path = runtime_path },
         workspace = {
             library = vim.api.nvim_get_runtime_file("", true),
+            maxPreload = 1600,
         },
         diagnostics = {
             enable = true,

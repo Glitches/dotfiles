@@ -2,6 +2,9 @@
 /nvim/plugin
 /nvim/autoload
 /darktable
+/nvim/lua-language-server
+/nvim/package.json
+/nvim/package-lock.json
 
 !/darktable/shortcutsrc.edit
 !/darktable/shortcutsrc.defaults

@@ -126,7 +126,7 @@ components.active[1][2] = {
 -- filename
 components.active[1][3] = {
   provider = function()
-    return vim.fn.expand("%:F")
+    return vim.fn.expand("%:h")
   end,
   hl = {
     fg = 'white',
@@ -370,12 +370,13 @@ components.inactive[1][1] = {
   }
 }
 
-feline.setup({
+--feline.setup()
+ feline.setup({
   colors = colors,
   default_bg = bg,
   default_fg = fg,
   vi_mode_colors = vi_mode_colors,
   components = components,
   force_inactive = force_inactive,
-})
+ })
 

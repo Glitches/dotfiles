@@ -72,7 +72,6 @@ return packer.startup(function()
     use 'SirVer/ultisnips' -- snippets
 
     -- development
-    -- use("~/git/nvim-lsp-ts-utils") -- improve typescript experience
     use({
         "vuki656/package-info.nvim", -- manage package.json
         config = config("package-info"),
@@ -80,7 +79,7 @@ return packer.startup(function()
         ft = { "typescript", "typescriptreact" },
     })
     use("jose-elias-alvarez/null-ls.nvim")
-    use("jose-elias-alvarez/nvim-lsp-ts-utils")
+    use("jose-elias-alvarez/nvim-lsp-ts-utils")-- improve typescript experience
     
     -- treesitter
     use({
@@ -102,9 +101,8 @@ return packer.startup(function()
     })
     use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
     
-    -- line bar
-    use_with_config("famiu/feline.nvim", "feline")
-    -- use_with_config("~/git/buftabline.nvim", "buftabline") -- show buffers in tabline
+    use_with_config("famiu/feline.nvim", "feline") -- line bar
+    use_with_config("jose-elias-alvarez/buftabline.nvim", "buftabline") -- show buffers in tabline
 
     -- misc
     use("teal-language/vim-teal") -- teal language support
