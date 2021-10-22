@@ -1,7 +1,6 @@
 local cmp = require('cmp')
 
 local M = {}
-
 M.setup = function()
     cmp.setup({
         snippet = {

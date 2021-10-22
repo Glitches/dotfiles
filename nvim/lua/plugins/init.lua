@@ -69,7 +69,7 @@ return packer.startup(function()
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/nvim-cmp'
     use 'quangnguyen30192/cmp-nvim-ultisnips'
-    use 'SirVer/ultisnips' -- snippets
+    use_with_config("SirVer/ultisnips", "ultisnips") -- snippets
 
     -- development
     use({

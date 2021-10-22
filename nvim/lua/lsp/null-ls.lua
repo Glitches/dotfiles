@@ -1,9 +1,10 @@
+local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
 local b = null_ls.builtins
 
 local sources = {
     b.formatting.prettierd.with({
-        filetypes = { "html", "json", "yaml", "markdown", "typescript", "typescriptreact" },
+        filetypes = { "lua", "html", "json", "yaml", "markdown", "typescript", "typescriptreact" },
     }),
     b.formatting.trim_whitespace.with({ filetypes = { "tmux", "teal", "zsh" } }),
     b.formatting.shfmt,
@@ -20,7 +21,7 @@ M.setup = function(on_attach)
         debug = true,
         sources = sources,
     })
-    require("lspconfig")["null-ls"].setup({ on_attach = on_attach })
+    lspconfig["null-ls"].setup({ on_attach = on_attach })
 end
 
 return M

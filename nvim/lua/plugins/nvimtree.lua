@@ -17,7 +17,7 @@ nvim_tree.setup {
     -- closes neovim automatically when the tree is the last **WINDOW** in the view
     auto_close          = false,
     -- opens the tree when changing/opening a new tab if the tree wasn't previously opened
-    open_on_tab         = false,
+    open_on_tab         = true,
     -- hijacks new directory buffers when they are opened.
     update_to_buf_dir   = {
     -- enable the feature
@@ -66,7 +66,7 @@ nvim_tree.setup {
         -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
         side = 'right',
         -- if true the tree will resize itself after opening a file
-        auto_resize = false,
+        auto_resize = true,
         mappings = {
         -- custom only false will merge the list with the default mappings
         -- if true, it will only use your list to set the mappings

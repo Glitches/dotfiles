@@ -3,7 +3,6 @@ local u = require("utils")
 vim.o.background = "dark" -- or "light" for light mode
 vim.cmd([[colorscheme gruvbox]])
 
-
 vim.g.mapleader = ","
 
 vim.opt.completeopt = { "menuone", "noinsert" }
@@ -16,7 +15,7 @@ vim.opt.mouse = "a"
 vim.opt.pumheight = 10
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-vim.opt.statusline = [[%f %y %m %= %p%% %l:%c]]
+--vim.opt.statusline = [[%f %y %m %= %p%% %l:%c]]
 vim.opt.termguicolors = true
 vim.opt.undofile = true
 vim.opt.updatetime = 300
@@ -28,7 +27,7 @@ vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 vim.opt.timeoutlen = 300
 vim.opt.shortmess:append("cA")
--- vim.opt.clipboard:append("unnamedplus")
+vim.opt.clipboard:append("unnamedplus")
 
 _G.global = {}
 

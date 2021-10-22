@@ -1,5 +1,5 @@
 local lspconfig = require("lspconfig")
-local cmp = require("lsp.cmp")
+
 local u = require("utils")
 
 local ts_utils_settings = {

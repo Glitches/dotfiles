@@ -1,9 +1,8 @@
 local u = require("utils")
 
 vim.g.yoinkMoveCursorToEndOfPaste = true
-vim.g.yoinkIncludeDeleteOperations = true
+vim.g.yoinkIncludeDeleteOperations = 1
 vim.g.yoinkSyncSystemClipboardOnFocus = 0
-vim.g.clipboard = "xclip"
 
 local opts = { noremap = false }
 
