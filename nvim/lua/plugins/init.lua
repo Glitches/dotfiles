@@ -98,7 +98,9 @@ return packer.startup(function()
     use({ -- themes
         "sainnhe/sonokai",
         "RRethy/nvim-base16",
+        "folke/tokyonight.nvim"
     })
+
     use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
     
     use_with_config("famiu/feline.nvim", "feline") -- line bar
