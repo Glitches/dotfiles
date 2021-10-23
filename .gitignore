@@ -6,8 +6,11 @@
 /nvim/package.json
 /nvim/package-lock.json
 
+setup.md
+
 !/darktable/shortcutsrc.edit
 !/darktable/shortcutsrc.defaults
 !/darktable/shortcutsrc.backup
 !/darktable/user.css
 !/darktable/darktablerc
+
