@@ -76,19 +76,21 @@ _G.global.telescope = {
 u.lua_command("Files", "global.telescope.find_files()")
 u.command("Rg", "Telescope live_grep")
 u.command("BLines", "Telescope current_buffer_fuzzy_find")
-u.command("History", "Telescope oldfiles")
 u.command("Buffers", "Telescope buffers")
 u.command("BCommits", "Telescope git_bcommits")
 u.command("Commits", "Telescope git_commits")
 u.command("HelpTags", "Telescope help_tags")
 u.command("ManPages", "Telescope man_pages")
+u.command("History", "Telescope oldfiles")
 
 u.map("n", "<Leader>ff", "<cmd>Files<CR>")
 u.map("n", "<Leader>fg", "<cmd>Rg<CR>")
+u.map("n", "<Leader>fl", "<cmd>BLines<CR>")
 u.map("n", "<Leader>fb", "<cmd>Buffers<CR>")
+u.map("n", "<Leader>fm", "<cmd>BCommits<CR>")
+u.map("n", "<Leader>fc", "<cmd>Commits<CR>")
 u.map("n", "<Leader>fo", "<cmd>History<CR>")
 u.map("n", "<Leader>fh", "<cmd>HelpTags<CR>")
-u.map("n", "<Leader>fl", "<cmd>BLines<CR>")
 u.map("n", "<Leader>fs", "<cmd>LspSym<CR>")
 
 -- lsp

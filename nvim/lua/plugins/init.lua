@@ -105,7 +105,12 @@ return packer.startup(function()
     
     use_with_config("famiu/feline.nvim", "feline") -- line bar
     use_with_config("jose-elias-alvarez/buftabline.nvim", "buftabline") -- show buffers in tabline
-
+    use_with_config("lukas-reineke/indent-blankline.nvim", "indent")
+    use({
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = config("trouble")
+    })   
     -- misc
     use("teal-language/vim-teal") -- teal language support
     use("nvim-lua/plenary.nvim") -- required for plugins (and testing)
