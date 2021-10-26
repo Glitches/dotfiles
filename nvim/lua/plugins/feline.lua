@@ -164,19 +164,28 @@ components.active[1][6] = {
 }
 
 -- MID
--- LspName
+-- fill 
 components.active[2][1] = {
+  provider = ' ',
+  hl = {
+    fg = 'skyblue',
+    bg = 'dark',
+  },
+  left_sep = ''
+}
+
+-- LspName
+components.active[2][2] = {
   provider = 'lsp_client_names',
   hl = {
     fg = 'yellow',
     bg = 'dark',
     style = 'bold'
   },
-  left_sep = ' ',
 }
 
 -- fill 
-components.active[2][2] = {
+components.active[2][3] = {
   provider = ' ',
   hl = {
     fg = 'skyblue',
@@ -185,7 +194,7 @@ components.active[2][2] = {
 }
 
 -- fileType
-components.active[2][3] = {
+components.active[2][4] = {
   provider = function ()
     return ' ' .. file.file_type() .. ' ' 
   end,
@@ -206,7 +215,7 @@ components.active[2][3] = {
 }
 
 -- fill 
-components.active[2][4] = {
+components.active[2][5] = {
   provider = '',
   hl = {
     fg = 'skyblue',
@@ -215,7 +224,7 @@ components.active[2][4] = {
 }
 
 -- fileFormat
-components.active[2][5] = {
+components.active[2][6] = {
   provider = function() 
         return ' ' .. vim.bo.fileformat:upper() .. ' ' 
     end,
@@ -228,7 +237,7 @@ components.active[2][5] = {
 }
 
 -- fill 
-components.active[2][6] = {
+components.active[2][7] = {
   provider = '',
   hl = {
     fg = 'skyblue',
@@ -237,7 +246,7 @@ components.active[2][6] = {
 }
 
 -- fileEncode
-components.active[2][7] = {
+components.active[2][8] = {
   provider = function ()
       return ' ' .. file.file_encoding():upper() .. ' '
   end,
