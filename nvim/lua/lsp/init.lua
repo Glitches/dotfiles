@@ -22,7 +22,7 @@ _G.global.lsp = {
 
 local on_attach = function(client, bufnr)
     local buf_map = vim.api.nvim_buf_set_keymap
-    
+
     vim.cmd("command! LspDef lua vim.lsp.buf.definition()")
     vim.cmd("command! LspDec lua vim.lsp.buf.declaration()")
     vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
@@ -60,6 +60,7 @@ local on_attach = function(client, bufnr)
          ]], true)
     end
 end
+
 
 local capabilities =  require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 

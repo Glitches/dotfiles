@@ -1,6 +1,8 @@
 local feline = require("feline")
 local lsp = require('feline.providers.lsp')
 local vi_mode_utils = require('feline.providers.vi_mode')
+local cursor = require('feline.providers.cursor')
+local file = require('feline.providers.file')
 
 local force_inactive = {
     filetypes = {},
@@ -13,22 +15,6 @@ local components = {
   inactive = {{}, {}, {}},
 }
 
--- local colors = {
---  bg = '#282828',
---  black = '#282828',
---  yellow = '#d8a657',
---  cyan = '#89b482',
---  oceanblue = '#45707a',
---  green = '#a9b665',
---  orange = '#e78a4e',
---  violet = '#d3869b',
---  magenta = '#c14a4a',
---  white = '#a89984',
---  fg = '#a89984',
---  skyblue = '#7daea3',
---  red = '#ea6962',
---} 
-
 local colors = {
     bg = '#24283b',
     black = '#1a1b26',
@@ -40,16 +26,17 @@ local colors = {
     magenta = '#bb9af7',
     orange = '#ff9e64',
     red = '#f7768e',
-    skyblue = '#2ac3de', 
+    skyblue = '#7aa2f7', 
     violet = '#bb9af7',
     white = '#cfc9c2',
+    dark = '#414868'
 }
 
 local vi_mode_colors = {
-  NORMAL = 'green',
-  OP = 'green',
-  INSERT = 'red',
-  VISUAL = 'skyblue',
+  NORMAL = 'skyblue',
+  OP = 'skyblue',
+  INSERT = 'oceanblue',
+  VISUAL = 'violet',
   LINES = 'skyblue',
   BLOCK = 'skyblue',
   REPLACE = 'violet',
@@ -57,28 +44,28 @@ local vi_mode_colors = {
   ENTER = 'cyan',
   MORE = 'cyan',
   SELECT = 'orange',
-  COMMAND = 'green',
-  SHELL = 'green',
-  TERM = 'green',
+  COMMAND = 'skyblue',
+  SHELL = 'skyblue',
+  TERM = 'skyblue',
   NONE = 'yellow'
 }
 
 local vi_mode_text = {
-  NORMAL = '<|',
-  OP = '<|',
-  INSERT = '|>',
-  VISUAL = '<>',
-  LINES = '<>',
-  BLOCK = '<>',
-  REPLACE = '<>',
-  ['V-REPLACE'] = '<>',
-  ENTER = '<>',
-  MORE = '<>',
-  SELECT = '<>',
-  COMMAND = '<|',
-  SHELL = '<|',
-  TERM = '<|',
-  NONE = '<>'
+  NORMAL = 'NORMAL',
+  OP = 'OP',
+  INSERT = 'INSERT',
+  VISUAL = 'VISUAL',
+  LINES = 'LINES',
+  BLOCK = 'BLOCK',
+  REPLACE = 'REPLACE',
+  ['V-REPLACE'] = 'V-REPLACE',
+  ENTER = 'ENTER',
+  MORE = 'MORE',
+  SELECT = 'SELECT',
+  COMMAND = 'COMMAND',
+  SHELL = 'SHELL',
+  TERM = 'TERM',
+  NONE = 'NONE'
 }
 
 local buffer_not_empty = function()
@@ -110,10 +97,11 @@ force_inactive.buftypes = {
 }
 
 -- LEFT
-
 -- vi-mode
 components.active[1][1] = {
-  provider = ' NV-IDE ',
+  provider = function()
+    return ' ' .. vi_mode_text[vi_mode_utils.get_vim_mode()] .. ' '
+  end,
   hl = function()
     local val = {}
 
@@ -123,36 +111,23 @@ components.active[1][1] = {
 
     return val
   end,
-  right_sep = ' '
+  right_sep = ' '
 }
--- vi-symbol
+
+-- filename
 components.active[1][2] = {
   provider = function()
-    return vi_mode_text[vi_mode_utils.get_vim_mode()]
-  end,
-  hl = function()
-    local val = {}
-    val.fg = vi_mode_utils.get_mode_color()
-    val.bg = 'bg'
-    val.style = 'bold'
-    return val
-  end,
-  right_sep = ' '
-}
--- filename
-components.active[1][3] = {
-  provider = function()
-    return vim.fn.expand("%:h")
+    return vim.fn.pathshorten(vim.fn.fnamemodify(vim.fn.expand("%"), ":~:."))
   end,
   hl = {
     fg = 'white',
     bg = 'bg',
     style = 'bold'
   },
-  right_sep = ' '
+  right_sep = ' '
 }
 -- gitBranch
-components.active[1][4] = {
+components.active[1][3] = {
   provider = 'git_branch',
   hl = {
     fg = 'yellow',
@@ -161,16 +136,16 @@ components.active[1][4] = {
   }
 }
 -- diffAdd
-components.active[1][5] = {
+components.active[1][4] = {
   provider = 'git_diff_added',
   hl = {
-    fg = 'green',
+    fg = 'skyblue',
     bg = 'bg',
     style = 'bold'
   }
 }
 -- diffModfified
-components.active[1][6] = {
+components.active[1][5] = {
   provider = 'git_diff_changed',
   hl = {
     fg = 'orange',
@@ -179,7 +154,7 @@ components.active[1][6] = {
   }
 }
 -- diffRemove
-components.active[1][7] = {
+components.active[1][6] = {
   provider = 'git_diff_removed',
   hl = {
     fg = 'red',
@@ -189,176 +164,142 @@ components.active[1][7] = {
 }
 
 -- MID
-
 -- LspName
 components.active[2][1] = {
   provider = 'lsp_client_names',
   hl = {
     fg = 'yellow',
-    bg = 'bg',
+    bg = 'dark',
     style = 'bold'
   },
-  right_sep = ' '
+  left_sep = ' ',
 }
--- diagnosticErrors
+
+-- fill 
 components.active[2][2] = {
-  provider = 'diagnostic_errors',
-  enabled = function() return lsp.diagnostics_exist('Error') end,
-  hl = {
-    fg = 'red',
-    style = 'bold'
-  }
-}
--- diagnosticWarn
-components.active[2][3] = {
-  provider = 'diagnostic_warnings',
-  enabled = function() return lsp.diagnostics_exist('Warning') end,
-  hl = {
-    fg = 'yellow',
-    style = 'bold'
-  }
-}
--- diagnosticHint
-components.active[2][4] = {
-  provider = 'diagnostic_hints',
-  enabled = function() return lsp.diagnostics_exist('Hint') end,
-  hl = {
-    fg = 'cyan',
-    style = 'bold'
-  }
-}
--- diagnosticInfo
-components.active[2][5] = {
-  provider = 'diagnostic_info',
-  enabled = function() return lsp.diagnostics_exist('Information') end,
+  provider = ' ',
   hl = {
     fg = 'skyblue',
-    style = 'bold'
-  }
+    bg = 'dark',
+  },
 }
 
--- RIGHT
-
--- fileIcon
-components.active[3][1] = {
-  provider = function()
-    local filename = vim.fn.expand('%:t')
-    local extension = vim.fn.expand('%:e')
-    local icon  = require'nvim-web-devicons'.get_icon(filename, extension)
-    if ion == nil then
-      icon = ''
-    end
-    return icon
-  end,
-  hl = function()
-    local val = {}
-    local filename = vim.fn.expand('%:t')
-    local extension = vim.fn.expand('%:e')
-    local icon, name  = require'nvim-web-devicons'.get_icon(filename, extension)
-    if icon ~= nil then
-      val.fg = vim.fn.synIDattr(vim.fn.hlID(name), 'fg')
-    else
-      val.fg = 'white'
-    end
-    val.bg = 'bg'
-    val.style = 'bold'
-    return val
-  end,
-  right_sep = ' '
-}
 -- fileType
-components.active[3][2] = {
-  provider = 'file_type',
+components.active[2][3] = {
+  provider = function ()
+    return ' ' .. file.file_type() .. ' ' 
+  end,
   hl = function()
     local val = {}
     local filename = vim.fn.expand('%:t')
     local extension = vim.fn.expand('%:e')
-    local icon, name  = require'nvim-web-devicons'.get_icon(filename, extension)
+    local icon, name  = require('nvim-web-devicons').get_icon(filename, extension)
     if icon ~= nil then
       val.fg = vim.fn.synIDattr(vim.fn.hlID(name), 'fg')
     else
       val.fg = 'white'
     end
-    val.bg = 'bg'
+    val.bg = 'dark'
     val.style = 'bold'
     return val
   end,
-  right_sep = ' '
 }
--- fileSize
-components.active[3][3] = {
-  provider = 'file_size',
-  enabled = function() return vim.fn.getfsize(vim.fn.expand('%:t')) > 0 end,
+
+-- fill 
+components.active[2][4] = {
+  provider = '',
   hl = {
     fg = 'skyblue',
-    bg = 'bg',
-    style = 'bold'
+    bg = 'dark',
   },
-  right_sep = ' '
 }
+
 -- fileFormat
-components.active[3][4] = {
-  provider = function() return '' .. vim.bo.fileformat:upper() .. '' end,
+components.active[2][5] = {
+  provider = function() 
+        return ' ' .. vim.bo.fileformat:upper() .. ' ' 
+    end,
+    enabled = checkwidth(),
   hl = {
     fg = 'white',
-    bg = 'bg',
+    bg = 'dark',
     style = 'bold'
   },
-  right_sep = ' '
 }
+
+-- fill 
+components.active[2][6] = {
+  provider = '',
+  hl = {
+    fg = 'skyblue',
+    bg = 'dark',
+  },
+}
+
 -- fileEncode
-components.active[3][5] = {
-  provider = 'file_encoding',
+components.active[2][7] = {
+  provider = function ()
+      return ' ' .. file.file_encoding():upper() .. ' '
+  end,
   hl = {
-    fg = 'white',
-    bg = 'bg',
+    fg = 'skyblue',
+    bg = 'dark',
     style = 'bold'
   },
-  right_sep = ' '
+
 }
--- rubyVersion
--- components.active[3][6] = {
---  provider = function()
---    return ' '..vim.fn['rvm#string']()
---  end,
---  hl = {
---    fg = 'red',
---    bg = 'bg',
---    style = 'bold'
---  },
---  right_sep = ' '
---}
+-- fill 
+components.active[3][1] = {
+  provider = ' ',
+  hl = {
+    fg = 'skyblue',
+    bg = 'dark',
+  },
+}
+
 -- lineInfo
-components.active[3][7] = {
-  provider = 'position',
+components.active[3][2] = {
+  provider = function ()
+      return ' :' .. cursor.position():upper() .. ' '
+  end,
   hl = {
-    fg = 'white',
-    bg = 'bg',
+    fg = 'skyblue',
+    bg = 'dark',
     style = 'bold'
   },
-  right_sep = ' '
+  left_sep = ' ',
 }
+
+components.active[3][3]  =   {
+    hl = {
+        fg = 'skyblue',
+        bg = 'dark'
+    },
+    provider = function ()
+       return ' ' 
+    end ,
+ }
+
 -- linePercent
-components.active[3][8] = {
-  provider = 'line_percentage',
+components.active[3][4] = {
+  provider = ' ' .. cursor.line_percentage():upper() .. ' ',
   hl = {
-    fg = 'white',
-    bg = 'bg',
+    fg = 'black',
+    bg = 'skyblue',
     style = 'bold'
   },
-  right_sep = ' '
 }
+
 -- scrollBar
-components.active[3][9] = {
+components.active[3][5] = {
   provider = 'scroll_bar',
   hl = {
     fg = 'yellow',
-    bg = 'bg',
+    bg = 'skyblue',
   },
 }
 
 -- INACTIVE
-
 -- fileType
 components.inactive[1][1] = {
   provider = 'file_type',
@@ -368,7 +309,7 @@ components.inactive[1][1] = {
     style = 'bold'
   },
   left_sep = {
-    str = ' ',
+    str = '',
     hl = {
       fg = 'NONE',
       bg = 'cyan'
@@ -386,11 +327,10 @@ components.inactive[1][1] = {
   }
 }
 
---feline.setup()
  feline.setup({
   colors = colors,
-  default_bg = bg,
-  default_fg = fg,
+  default_bg = colors.bg,
+  default_fg = colors.fg,
   vi_mode_colors = vi_mode_colors,
   components = components,
   force_inactive = force_inactive,
