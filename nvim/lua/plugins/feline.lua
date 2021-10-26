@@ -250,7 +250,7 @@ components.active[2][7] = {
 }
 -- fill 
 components.active[3][1] = {
-  provider = ' ',
+  provider = '',
   hl = {
     fg = 'skyblue',
     bg = 'dark',
@@ -267,7 +267,6 @@ components.active[3][2] = {
     bg = 'dark',
     style = 'bold'
   },
-  left_sep = ' ',
 }
 
 components.active[3][3]  =   {
@@ -276,7 +275,7 @@ components.active[3][3]  =   {
         bg = 'dark'
     },
     provider = function ()
-       return ' ' 
+       return '' 
     end ,
  }
 
