@@ -77,7 +77,7 @@ end
 
 local checkwidth = function()
 	local squeeze_width = vim.fn.winwidth(0) / 2
-	if squeeze_width > 40 then
+	if squeeze_width > 60 then
 		return true
 	end
 	return false
@@ -86,7 +86,6 @@ end
 local commonHl = {
 	fg = "skyblue",
 	bg = "dark",
-	style = "bold",
 }
 
 force_inactive.filetypes = {
@@ -173,16 +172,15 @@ components.active[1][6] = {
 -- fill
 components.active[2][1] = {
 	provider = " ",
-	hl = {
-		fg = "skyblue",
-		bg = "dark",
-	},
+	enabled = checkwidth(),
+	hl = commonHl,
 	left_sep = "",
 }
 
 -- LspName
 components.active[2][2] = {
 	provider = "lsp_client_names",
+	enabled = checkwidth(),
 	hl = {
 		fg = "yellow",
 		bg = "dark",
@@ -193,10 +191,7 @@ components.active[2][2] = {
 -- fill
 components.active[2][3] = {
 	provider = " ",
-	hl = {
-		fg = "skyblue",
-		bg = "dark",
-	},
+	hl = commonHl,
 }
 
 -- fileType
@@ -223,10 +218,8 @@ components.active[2][4] = {
 -- fill
 components.active[2][5] = {
 	provider = "",
-	hl = {
-		fg = "skyblue",
-		bg = "dark",
-	},
+	enabled = checkwidth(),
+	hl = commonHl,
 }
 
 -- fileFormat
@@ -245,10 +238,7 @@ components.active[2][6] = {
 -- fill
 components.active[2][7] = {
 	provider = "",
-	hl = {
-		fg = "skyblue",
-		bg = "dark",
-	},
+	hl = commonHl,
 }
 
 -- fileEncode
@@ -256,39 +246,27 @@ components.active[2][8] = {
 	provider = function()
 		return " " .. file.file_encoding():upper() .. " "
 	end,
-	hl = {
-		fg = "skyblue",
-		bg = "dark",
-	},
+	hl = commonHl,
 }
 
 -- fill
 components.active[2][9] = {
 	provider = " ",
 	enabled = checkwidth(),
-	hl = {
-		fg = "skyblue",
-		bg = "dark",
-	},
+	hl = commonHl,
 }
 
 -- fileSize
 components.active[2][10] = {
 	provider = "file_size",
 	enabled = checkwidth(),
-	hl = {
-		fg = "skyblue",
-		bg = "dark",
-	},
+	hl = commonHl,
 }
 
 -- fill
 components.active[3][1] = {
 	provider = "",
-	hl = {
-		fg = "skyblue",
-		bg = "dark",
-	},
+	hl = commonHl,
 }
 
 -- lineInfo
@@ -296,17 +274,11 @@ components.active[3][2] = {
 	provider = function()
 		return " ☰" .. cursor.position():upper() .. " "
 	end,
-	hl = {
-		fg = "skyblue",
-		bg = "dark",
-	},
+	hl = commonHl,
 }
 
 components.active[3][3] = {
-	hl = {
-		fg = "skyblue",
-		bg = "dark",
-	},
+	hl = commonHl,
 	provider = function()
 		return ""
 	end,
