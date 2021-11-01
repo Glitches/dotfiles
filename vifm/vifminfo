@@ -93,15 +93,30 @@ D/home/andrea/Documenti
 	Personali
 11
 D/home/andrea
-	Calibre Library
+	Documents
+7
+D/home/andrea/Documents
+	..
+0
+D/home/andrea
+	Documenti
+6
+D/home/andrea/Documenti
+	Personali
+11
+D/home/andrea/Documenti/Personali
+	Buste_Paga
+2
+D/home/andrea/Documenti
+	Enpass
 5
 D
 
 # Command line history (oldest to newest):
 :e prova.json
 :h
-:q
 :help
+:q
 
 # Search history (oldest to newest):
 

@@ -15,7 +15,6 @@ vim.opt.mouse = "a"
 vim.opt.pumheight = 10
 vim.opt.splitbelow = true
 vim.opt.splitright = true
---vim.opt.statusline = [[%f %y %m %= %p%% %l:%c]]
 vim.opt.termguicolors = true
 vim.opt.undofile = true
 vim.opt.updatetime = 300
