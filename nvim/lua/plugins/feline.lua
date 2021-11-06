@@ -286,7 +286,9 @@ components.active[3][3] = {
 
 -- linePercent
 components.active[3][4] = {
-	provider = " " .. cursor.line_percentage():upper() .. " ",
+	provider = function()
+		return " " .. cursor.line_percentage():upper() .. " "
+	end,
 	hl = {
 		fg = "black",
 		bg = "skyblue",
@@ -306,25 +308,27 @@ components.active[3][5] = {
 -- INACTIVE
 -- fileType
 components.inactive[1][1] = {
-	provider = "file_type",
+	provider = function()
+		return file.file_type():upper() .. " "
+	end,
 	hl = {
 		fg = "black",
-		bg = "cyan",
+		bg = "skyblue",
 		style = "bold",
 	},
 	left_sep = {
-		str = "",
+		str = " ",
 		hl = {
 			fg = "NONE",
-			bg = "cyan",
+			bg = "skyblue",
 		},
 	},
 	right_sep = {
 		{
-			str = " ",
+			str = "",
 			hl = {
-				fg = "NONE",
-				bg = "cyan",
+				fg = "skyblue",
+				bg = "black",
 			},
 		},
 		" ",
