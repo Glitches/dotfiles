@@ -2,6 +2,7 @@ local tsserver = require("lsp.tsserver")
 local cmp = require("lsp.cmp")
 local sumneko = require("lsp.sumneko")
 local null_ls = require("lsp.null-ls")
+local svelteserver = require("lsp.svelteserver")
 
 local lsp = vim.lsp
 
@@ -70,3 +71,4 @@ cmp.setup()
 tsserver.setup(on_attach, capabilities)
 sumneko.setup(on_attach)
 null_ls.setup(on_attach)
+svelteserver.setup(on_attach)

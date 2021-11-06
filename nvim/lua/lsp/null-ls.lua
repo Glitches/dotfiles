@@ -4,7 +4,7 @@ local b = null_ls.builtins
 
 local sources = {
 	b.formatting.prettierd.with({
-		filetypes = { "html", "json", "yaml", "markdown", "typescript", "typescriptreact" },
+		filetypes = { "html", "json", "yaml", "markdown", "typescript", "typescriptreact", "svelte" },
 	}),
 	b.formatting.stylua,
 	b.formatting.trim_whitespace.with({ filetypes = { "tmux", "teal", "zsh" } }),
