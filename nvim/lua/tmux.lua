@@ -7,16 +7,16 @@ local tmux_directions = { h = "L", j = "D", k = "U", l = "R" }
 local M = {}
 
 local tmux_move = function(direction)
-    vim.fn.system("tmux selectp -" .. tmux_directions[direction])
+	vim.fn.system("tmux selectp -" .. tmux_directions[direction])
 end
 
 M.move = function(direction)
-    local current_win = api.nvim_get_current_win()
-    vim.cmd("wincmd " .. direction)
+	local current_win = api.nvim_get_current_win()
+	vim.cmd("wincmd " .. direction)
 
-    if api.nvim_get_current_win() == current_win then
-        tmux_move(direction)
-    end
+	if api.nvim_get_current_win() == current_win then
+		tmux_move(direction)
+	end
 end
 
 u.map("n", "<C-h>", ":lua require'tmux'.move('h')<CR>")
