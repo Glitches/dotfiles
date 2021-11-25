@@ -17,7 +17,7 @@
 # Bookmarks:
 
 # TUI:
-ar
+al
 q0
 v2
 ov
@@ -41,6 +41,33 @@ d/home/andrea/Scrivania
 d/home/andrea/Scrivania/Old Firefox Data
 	..
 0
+d/home/andrea/projects/facile/elephant
+	packages
+6
+d/home/andrea/projects/facile/elephant/packages
+	backend
+1
+d/home/andrea/projects/facile/elephant/packages/backend
+	rep.xlsx
+14
+d/home/andrea/projects/facile/elephant
+	packages
+6
+d/home/andrea/projects/facile/elephant/packages
+	backend
+1
+d/home/andrea/projects/facile/elephant/packages/backend
+	rep.xlsx
+14
+d/home/andrea/projects/facile/elephant
+	packages
+6
+d/home/andrea/projects/facile/elephant/packages
+	backend
+1
+d/home/andrea/projects/facile/elephant/packages/backend
+	rep.xlsx
+14
 d
 
 # Right window history (oldest to newest):
@@ -108,8 +135,8 @@ D/home/andrea/Documenti/Personali
 	Buste_Paga
 2
 D/home/andrea/Documenti
-	Enpass
-5
+	Documenti
+7
 D
 
 # Command line history (oldest to newest):
