@@ -60,7 +60,8 @@ nvim_tree.setup({
 
 	view = {
 		-- width of the window, can be either a number (columns) or a string in `%`, for left or right' | 'top' | 'bottom'
-		side = "left",
+		width = "25%",
+		side = "right",
 		-- if true the tree will resize itself after opening a file
 		auto_resize = true,
 		mappings = {

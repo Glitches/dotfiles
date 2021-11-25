@@ -3,6 +3,7 @@ local cmp = require("lsp.cmp")
 local sumneko = require("lsp.sumneko")
 local null_ls = require("lsp.null-ls")
 local svelteserver = require("lsp.svelteserver")
+local yamlserver = require("lsp.yamlserver")
 
 local lsp = vim.lsp
 
@@ -48,6 +49,7 @@ local on_attach = function(client, bufnr)
 	buf_map(bufnr, "n", "gs", ":LspOrganize<CR>", { silent = true })
 	buf_map(bufnr, "n", "<Leader>h", ":LspDiagPrev<CR>", { silent = true })
 	buf_map(bufnr, "n", "<Leader>l", ":LspDiagNext<CR>", { silent = true })
+	buf_map(bufnr, "n", "<Leader>z", ":LspImplementation<CR>", { silent = true })
 	buf_map(bufnr, "n", "ga", ":LspCodeAction<CR>", { silent = true })
 	buf_map(bufnr, "n", "<Leader>a", ":LspDiagLine<CR>", { silent = true })
 	buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>", { silent = true })
@@ -63,6 +65,10 @@ local on_attach = function(client, bufnr)
 			true
 		)
 	end
+
+	if client.resolved_capabilities.completion then
+		vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
+	end
 end
 
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -72,3 +78,4 @@ tsserver.setup(on_attach, capabilities)
 sumneko.setup(on_attach)
 null_ls.setup(on_attach)
 svelteserver.setup(on_attach)
+yamlserver.setup(on_attach)

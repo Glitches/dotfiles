@@ -16,37 +16,36 @@ local components = {
 }
 
 local colors = {
-	bg = "#24283b",
-	black = "#1a1b26",
+	bg = "#3c3836",
+	black = "#282828",
 	cyan = "#73daca",
-	fg = "#a9b1d6",
-	green = "#9ece6a",
-	yellow = "#e0af68",
-	oceanblue = "#7aa2f7",
-	magenta = "#bb9af7",
-	orange = "#ff9e64",
-	red = "#f7768e",
-	skyblue = "#7aa2f7",
-	violet = "#bb9af7",
-	white = "#cfc9c2",
-	dark = "#414868",
+	fg = "#ebdbb2",
+	green = "#98971a",
+	yellow = "#d79921",
+	aqua = "#7aa2f7",
+	orange = "#fe8019",
+	red = "#fb4934",
+	blue = "#458588",
+	violet = "#b16286",
+	white = "#fbf1c7",
+	dark = "#32302f",
 }
 
 local vi_mode_colors = {
-	NORMAL = "skyblue",
-	OP = "skyblue",
-	INSERT = "oceanblue",
+	NORMAL = "orange",
+	OP = "orange",
+	INSERT = "aqua",
 	VISUAL = "violet",
-	LINES = "skyblue",
-	BLOCK = "skyblue",
-	REPLACE = "violet",
+	LINES = "blue",
+	BLOCK = "blue",
+	REPLACE = "green",
 	["V-REPLACE"] = "violet",
 	ENTER = "cyan",
 	MORE = "cyan",
-	SELECT = "orange",
-	COMMAND = "skyblue",
-	SHELL = "skyblue",
-	TERM = "skyblue",
+	SELECT = "red",
+	COMMAND = "blue",
+	SHELL = "blue",
+	TERM = "blue",
 	NONE = "yellow",
 }
 
@@ -84,8 +83,8 @@ local checkwidth = function()
 end
 
 local commonHl = {
-	fg = "skyblue",
-	bg = "dark",
+	fg = "blue",
+	bg = "bg",
 }
 
 force_inactive.filetypes = {
@@ -144,7 +143,7 @@ components.active[1][3] = {
 components.active[1][4] = {
 	provider = "git_diff_added",
 	hl = {
-		fg = "skyblue",
+		fg = "blue",
 		bg = "bg",
 		style = "bold",
 	},
@@ -171,10 +170,9 @@ components.active[1][6] = {
 -- MID
 -- fill
 components.active[2][1] = {
-	provider = " ",
+	provider = " ",
 	enabled = checkwidth(),
 	hl = commonHl,
-	left_sep = "",
 }
 
 -- LspName
@@ -183,7 +181,7 @@ components.active[2][2] = {
 	enabled = checkwidth(),
 	hl = {
 		fg = "yellow",
-		bg = "dark",
+		bg = "bg",
 		style = "bold",
 	},
 }
@@ -209,7 +207,7 @@ components.active[2][4] = {
 		else
 			val.fg = "white"
 		end
-		val.bg = "dark"
+		val.bg = "bg"
 		val.style = "bold"
 		return val
 	end,
@@ -230,7 +228,7 @@ components.active[2][6] = {
 	enabled = checkwidth(),
 	hl = {
 		fg = "white",
-		bg = "dark",
+		bg = "bg",
 		style = "bold",
 	},
 }
@@ -260,7 +258,10 @@ components.active[2][9] = {
 components.active[2][10] = {
 	provider = "file_size",
 	enabled = checkwidth(),
-	hl = commonHl,
+	hl = {
+		fg = "red",
+		bg = "bg",
+	},
 }
 
 -- fill
@@ -278,7 +279,10 @@ components.active[3][2] = {
 }
 
 components.active[3][3] = {
-	hl = commonHl,
+	hl = {
+		fg = "orange",
+		bg = "bg",
+	},
 	provider = function()
 		return ""
 	end,
@@ -291,7 +295,7 @@ components.active[3][4] = {
 	end,
 	hl = {
 		fg = "black",
-		bg = "skyblue",
+		bg = "orange",
 		style = "bold",
 	},
 }
@@ -300,8 +304,8 @@ components.active[3][4] = {
 components.active[3][5] = {
 	provider = "scroll_bar",
 	hl = {
-		fg = "yellow",
-		bg = "skyblue",
+		fg = "dark",
+		bg = "orange",
 	},
 }
 
@@ -313,22 +317,22 @@ components.inactive[1][1] = {
 	end,
 	hl = {
 		fg = "black",
-		bg = "skyblue",
+		bg = "orange",
 		style = "bold",
 	},
 	left_sep = {
 		str = " ",
 		hl = {
 			fg = "NONE",
-			bg = "skyblue",
+			bg = "orange",
 		},
 	},
 	right_sep = {
 		{
 			str = "",
 			hl = {
-				fg = "skyblue",
-				bg = "black",
+				fg = "orange",
+				bg = "bg",
 			},
 		},
 		" ",

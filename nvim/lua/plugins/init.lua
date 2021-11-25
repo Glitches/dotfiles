@@ -19,6 +19,7 @@ return packer.startup(function()
 	use("tpope/vim-unimpaired")
 	use("tpope/vim-commentary")
 	use_with_config("lewis6991/gitsigns.nvim", "git")
+    use("kdheepak/lazygit.nvim") -- integrate lazygit
 
 	-- text objects
 	use("wellle/targets.vim") -- many useful additional text objects

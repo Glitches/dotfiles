@@ -40,8 +40,6 @@ M.setup = function(on_attach, capabilities)
 			u.buf_map("n", "go", ":TSLspImportAll<CR>", nil, bufnr)
 			u.buf_map("n", "qq", ":TSLspFixCurrent<CR>", nil, bufnr)
 			u.buf_map("i", ".", ".<C-x><C-o>", nil, bufnr)
-
-			vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
 		end,
 		flags = {
 			debounce_text_changes = 150,

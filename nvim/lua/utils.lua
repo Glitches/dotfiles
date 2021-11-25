@@ -84,6 +84,10 @@ M.input = function(keys, mode)
 	vim.api.nvim_feedkeys(M.t(keys), mode or "i", true)
 end
 
+M.warn = function(msg)
+	api.nvim_echo({ { msg, "WarningMsg" } }, true, {})
+end
+
 M.buf_augroup = function(name, event, fn)
 	api.nvim_exec(
 		string.format(

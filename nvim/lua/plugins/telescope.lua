@@ -9,6 +9,9 @@ telescope.setup({
 		fzf = { fuzzy = true, override_generic_sorter = true, override_file_sorter = true },
 	},
 	defaults = {
+		layout_config = {
+			horizontal = { width = 0.9 },
+		},
 		vimgrep_arguments = {
 			"rg",
 			"--color=never",
@@ -89,15 +92,15 @@ u.command("HelpTags", "Telescope help_tags")
 u.command("ManPages", "Telescope man_pages")
 u.command("History", "Telescope oldfiles")
 
-u.map("n", "<Leader>ff", "<cmd>Files<CR>")
-u.map("n", "<Leader>fg", "<cmd>Rg<CR>")
-u.map("n", "<Leader>fl", "<cmd>BLines<CR>")
-u.map("n", "<Leader>fb", "<cmd>Buffers<CR>")
-u.map("n", "<Leader>fm", "<cmd>BCommits<CR>")
-u.map("n", "<Leader>fc", "<cmd>Commits<CR>")
-u.map("n", "<Leader>fo", "<cmd>History<CR>")
-u.map("n", "<Leader>fh", "<cmd>HelpTags<CR>")
-u.map("n", "<Leader>fs", "<cmd>LspSym<CR>")
+u.nmap("<Leader>ff", "<cmd>Files<CR>")
+u.nmap("<Leader>fg", "<cmd>Rg<CR>")
+u.nmap("<Leader>fl", "<cmd>BLines<CR>")
+u.nmap("<Leader>fb", "<cmd>Buffers<CR>")
+u.nmap("<Leader>fm", "<cmd>BCommits<CR>")
+u.nmap("<Leader>fc", "<cmd>Commits<CR>")
+u.nmap("<Leader>fo", "<cmd>History<CR>")
+u.nmap("<Leader>fh", "<cmd>HelpTags<CR>")
+u.nmap("<Leader>fs", "<cmd>LspSym<CR>")
 
 -- lsp
 u.command("LspRef", "Telescope lsp_references")

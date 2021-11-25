@@ -1,3 +1,5 @@
+local diagnostics_format = "[#{c}] #{m} (#{s})]"
+
 local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
 local b = null_ls.builtins
@@ -12,8 +14,7 @@ local sources = {
 	b.diagnostics.write_good,
 	b.diagnostics.markdownlint,
 	b.diagnostics.teal,
-	b.diagnostics.stylua,
-	b.diagnostics.shellcheck.with({ diagnostics_format = "#{m} [#{c}]" }),
+	b.diagnostics.shellcheck.with({ diagnostics_format = diagnostics_format }),
 	b.code_actions.gitsigns,
 }
 
