@@ -66,8 +66,50 @@ d/home/andrea/projects/facile/elephant/packages
 	backend
 1
 d/home/andrea/projects/facile/elephant/packages/backend
-	rep.xlsx
-14
+	libs
+5
+d/home/andrea/projects/facile/elephant/packages/backend/libs
+	company
+3
+d/home/andrea/projects/facile/elephant/packages/backend/libs/company
+	test
+2
+d/home/andrea/projects/facile/elephant/packages/backend/libs/company/test
+	unit
+2
+d/home/andrea/projects/facile/elephant/packages/backend/libs/company/test/unit
+	integrations-clients
+2
+d/home/andrea/projects/facile/elephant/packages/backend/libs/company/test/unit/integrations-clients
+	companies
+1
+d/home/andrea/projects/facile/elephant/packages/backend/libs/company/test/unit/integrations-clients/companies
+	groupama
+3
+d/home/andrea/projects/facile/elephant/packages/backend/libs/company/test/unit/integrations-clients/companies/groupama
+	groupama-company-client.spec.ts
+1
+d/home/andrea/projects/facile/elephant/packages/backend/libs/company/test/unit/integrations-clients/companies
+	groupama
+3
+d/home/andrea/projects/facile/elephant/packages/backend/libs/company/test/unit/integrations-clients
+	companies
+1
+d/home/andrea/projects/facile/elephant/packages/backend/libs/company/test/unit
+	integrations-clients
+2
+d/home/andrea/projects/facile/elephant/packages/backend/libs/company/test
+	unit
+2
+d/home/andrea/projects/facile/elephant/packages/backend/libs/company
+	test
+2
+d/home/andrea/projects/facile/elephant/packages/backend/libs
+	company
+3
+d/home/andrea/projects/facile/elephant/packages/backend
+	test.pdf
+13
 d
 
 # Right window history (oldest to newest):
@@ -144,6 +186,7 @@ D
 :h
 :help
 :q
+:qa
 
 # Search history (oldest to newest):
 

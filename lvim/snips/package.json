@@ -1,0 +1,14 @@
+{
+  "name": "aasnippets",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": "typescript",
+        "path": "./fp-ts.json"
+      }
+    ]
+  }
+}
