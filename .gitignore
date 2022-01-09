@@ -6,6 +6,8 @@
 /nvim/package.json
 /nvim/package-lock.json
 
+/lvim/plugin
+
 setup.md
 
 !/darktable/shortcutsrc.edit
