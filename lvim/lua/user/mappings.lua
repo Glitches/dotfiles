@@ -1,12 +1,13 @@
+-- Keymappings [view all the defaults by pressing <leader>Lk]
+lvim.leader = "space"
 -- add your own keymapping
 -- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
 -- edit a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
+-- Load keybindings config
 
--- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
--- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
 local _, actions = pcall(require, "telescope.actions")
 lvim.builtin.telescope.defaults.mappings = {
 	-- for input mode
@@ -50,5 +51,8 @@ lvim.builtin.which_key.mappings["l"]["e"] = { "<cmd>TSLspImportAll<CR>", "Import
 lvim.builtin.which_key.mappings["l"]["F"] = { "<cmd>TSLspFixCurrent<CR>", "Fix Current" }
 lvim.builtin.which_key.mappings["l"]["A"] = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Float Diagnostics" }
 
--- buffer split
+-- Buffer split
 lvim.builtin.which_key.mappings["b"]["v"] = { "<cmd>vert belowright sb<CR>", "Split view right" }
+
+-- Cmp completion disambiguate from tmux
+lvim.builtin.cmp.mapping["<C-p>"] = require("cmp").mapping.complete()

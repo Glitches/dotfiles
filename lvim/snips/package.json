@@ -1,5 +1,5 @@
 {
-  "name": "aasnippets",
+  "name": "snippets",
   "engines": {
     "vscode": "^1.11.0"
   },
@@ -8,6 +8,14 @@
       {
         "language": "typescript",
         "path": "./fp-ts.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./fp-ts.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./react.json"
       }
     ]
   }

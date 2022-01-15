@@ -14,13 +14,18 @@
     "body": ["import * as E from 'fp-ts/Either'"],
     "description": "Either as Either"
   },
+  "Number": {
+    "prefix": "+N",
+    "body": ["import * as N from 'fp-ts/Number'"],
+    "description": "Number instance"
+  },
   "NonEmptyArray": {
     "prefix": "+NEA",
     "body": ["import * as NEA from 'fp-ts/NonEmptyArray'"],
     "description": "NonEmptyArray as NonEmptyArray"
   },
   "ReadonlyArray": {
-    "prefix": "+NEA",
+    "prefix": "+ROA",
     "body": ["import * as ROA from 'fp-ts/ReadonlyArray'"],
     "description": "ReadonlyArray as ReadonlyArray"
   },
@@ -75,4 +80,3 @@
     "description": "Refinement as Refinement"
   }
 }
-

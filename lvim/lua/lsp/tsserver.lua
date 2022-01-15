@@ -1,0 +1,67 @@
+-- LSP settings
+local status_ok, ts_utils = pcall(require, "nvim-lsp-ts-utils")
+if not status_ok then
+	vim.cmd([[ packadd nvim-lsp-ts-utils ]])
+	ts_utils = require("nvim-lsp-ts-utils")
+end
+
+local opts = {
+	on_attach = function(client, bufnr)
+		ts_utils.setup({
+			debug = false,
+			disable_commands = false,
+			enable_import_on_completion = false,
+			-- import all
+			import_all_timeout = 5000, -- ms
+			-- lower numbers = higher priority
+			import_all_priorities = {
+				same_file = 1, -- add to existing import statement
+				local_files = 2, -- git files or files with relative path markers
+				buffer_content = 3, -- loaded buffer content
+				buffers = 4, -- loaded buffer names
+			},
+			import_all_scan_buffers = 100,
+			import_all_select_source = false,
+			-- if false will avoid organizing imports
+			always_organize_imports = true,
+
+			-- filter diagnostics
+			filter_out_diagnostics_by_severity = {},
+			filter_out_diagnostics_by_code = {},
+
+			-- inlay hints
+			auto_inlay_hints = true,
+			inlay_hints_highlight = "Comment",
+			inlay_hints_priority = 200, -- priority of the hint extmarks
+			inlay_hints_throttle = 150, -- throttle the inlay hint request
+			inlay_hints_format = { -- format options for individual hint kind
+				Type = {},
+				Parameter = {},
+				Enum = {},
+				-- Example format customization for `Type` kind:
+				-- Type = {
+				--     highlight = "Comment",
+				--     text = function(text)
+				--         return "->" .. text:sub(2)
+				--     end,
+				-- },
+			},
+
+			-- update imports on file move
+			update_imports_on_move = true,
+			require_confirmation_on_move = true,
+			watch_dir = nil,
+		})
+		ts_utils.setup_client(client)
+		require("lvim.lsp").common_on_attach(client, bufnr)
+
+		--Enable completion triggered by <c-x><c-o>
+		-- vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+	end,
+	single_file_support = true,
+	-- init_options = require("nvim-lsp-ts-utils").init_options,
+	-- on_init = require("lvim.lsp").common_on_init,
+	-- capabilities = require("lvim.lsp").common_capabilities(),
+}
+
+require("lvim.lsp.manager").setup("tsserver", opts)
