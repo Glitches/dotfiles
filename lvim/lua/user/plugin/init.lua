@@ -9,36 +9,43 @@ lvim.plugins = {
 		"folke/trouble.nvim",
 		cmd = "TroubleToggle",
 	},
+	-- TODO and keywords in comment highlight
 	{
 		"folke/todo-comments.nvim",
 		event = "BufRead",
-		config = require("user-plugins.todocomments").config,
+		config = require("user.plugin.todocomments").config,
 	},
 	{
 		"blackCauldron7/surround.nvim",
-		config = require("user-plugins.surround").config,
+		config = require("user.plugin.nvim-surround").config,
 	},
 	{
 		"phaazon/hop.nvim",
 		event = "BufRead",
-		config = function()
-			require("hop").setup()
-			vim.api.nvim_set_keymap("n", "s", ":HopChar2<cr>", { silent = true })
-			vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
-		end,
+		config = require("user.plugin.nvim-hop").config,
 	},
-	-- null_ls typescript utils
+	{
+		"aserowy/tmux.nvim",
+		config = require("user.plugin.nvim-tmux").config,
+	},
+	-- Null_ls typescript utils
 	{ "jose-elias-alvarez/nvim-lsp-ts-utils" },
 	-- Git diff view
 	{ "sindrets/diffview.nvim", event = "BufRead" },
-	-- rainbow parentheses
+	-- Rainbow parentheses
 	{
 		"p00f/nvim-ts-rainbow",
 	},
-	-- advanced refactoring
+	-- Get color representation of RGB codes
+	{
+		"norcalli/nvim-colorizer.lua",
+		config = require("user.plugin.colorizer").config,
+	},
+
+	-- Advanced code refactoring
 	{
 		"ThePrimeagen/refactoring.nvim",
-		config = require("user-plugins.refactor").config,
+		config = require("user.plugin.refactor").config,
 		requires = {
 			{ "nvi-rua/plenary.nvim" },
 			{ "nvim-treesitter/nvim-treesitter" },
@@ -48,20 +55,22 @@ lvim.plugins = {
 	{
 		"windwp/nvim-ts-autotag",
 		event = "InsertEnter",
-		config = require("user-plugins.tagsautoclose").config,
+		config = function()
+			require("autotag").config()
+		end,
 	},
 	-- emmet support
 	{ "mattn/emmet-vim" },
-	-- shows indentation guides
+	-- Shows indentation guides
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = "BufRead",
-		setup = require("user-plugins.blankline").config,
+		setup = require("user.plugin.blankline").config,
 	},
 	-- An organizer like notion (uses neorg files)?
 	{
 		"nvim-neorg/neorg",
-		config = require("user-plugins.norg").config,
+		config = require("user.plugin.norg").config,
 		requires = "nvim-lua/plenary.nvim",
 	},
 }

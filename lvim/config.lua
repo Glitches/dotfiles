@@ -6,7 +6,7 @@ require("user.parsers")
 -- User setting for builtin plugins
 require("user.builtin")
 -- Plugin list
-require("user-plugins")
+require("user.plugin")
 -- Lsp tsserver config
 require("lsp.tsserver")
 -- Set luasnip personal snippets folder
@@ -18,6 +18,16 @@ lvim.format_on_save = true
 lvim.colorscheme = "tokyonight"
 
 lvim.lsp.diagnostics.float.border = "none"
+
+-- Fold rules
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldlevel = 4
+vim.o.foldtext =
+	[[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
+vim.o.fillchars = "fold: "
+vim.o.foldnestmax = 3
+vim.o.foldminlines = 1
 
 vim.opt.timeoutlen = 500
 vim.opt.listchars:append("space:⋅")
