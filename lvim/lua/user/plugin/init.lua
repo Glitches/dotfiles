@@ -16,10 +16,6 @@ lvim.plugins = {
 		config = require("user.plugin.todocomments").config,
 	},
 	{
-		"blackCauldron7/surround.nvim",
-		config = require("user.plugin.nvim-surround").config,
-	},
-	{
 		"phaazon/hop.nvim",
 		event = "BufRead",
 		config = require("user.plugin.nvim-hop").config,
@@ -50,14 +46,6 @@ lvim.plugins = {
 			{ "nvi-rua/plenary.nvim" },
 			{ "nvim-treesitter/nvim-treesitter" },
 		},
-	},
-	-- xml/html tag autoclose
-	{
-		"windwp/nvim-ts-autotag",
-		event = "InsertEnter",
-		config = function()
-			require("autotag").config()
-		end,
 	},
 	-- emmet support
 	{ "mattn/emmet-vim" },
