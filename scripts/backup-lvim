@@ -10,33 +10,9 @@ cd /home/aceccarelli/projects/dotfiles/
 
 GIT='git --git-dir='$PWD'/.git'
 
-  g=$($GIT status --short)
-
-if [ -z "$g" ]; then
-  echo "Nothing to commit"
-  exit 1;
-fi
-
-ga=$($GIT add .)
-
-gc=$($GIT commit --message "automatic back-up")
-
-if [-z "$ga" ]; then
-  echo "Stage files failed, exit"
-  exit 1;
-fi
-
-if [ -z "$gc" ]; then
-  echo "Commit staged files failed, exit"
-  exit 1;
-fi
-
-gp=$(git push)
-
-if [ -z "$gp" ]; then
-  echo "Push commit failed, exit"
-  exit 1;
-fi
+$GIT add .
+$GIT commit --message "automatic back-up"
+$GIT push
 
 echo "Pushed automated commit"
 
