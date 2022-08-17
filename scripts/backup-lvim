@@ -8,16 +8,18 @@ cp -r /home/aceccarelli/.config/lvim/ /home/aceccarelli/projects/dotfiles
 
 cd /home/aceccarelli/projects/dotfiles/
 
-  g=$(git status --short)
+GIT='git --git-dir='$PWD'/.git'
+
+g=$(GIT status --short)
 
 if [ -z "$g" ]; then
   echo "Nothing to commit"
   exit 1;
 fi
 
-ga=$(git add .)
+ga=$(GIT add .)
 
-gc=$(git commit --message "automatic back-up")
+gc=$(GIT commit --message "automatic back-up")
 
 if [-z "$ga" ]; then
   echo "Stage files failed, exit"
