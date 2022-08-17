@@ -1,0 +1,36 @@
+#!/bin/bash
+
+set -e
+
+cd /home/aceccarelli/Documenti
+
+g=$(git status --short)
+
+if [ -z "$g" ]; then
+  echo "Nothing to commit"
+  exit 1;
+fi
+
+ga=$(git add .)
+
+gc=$(git commit --message "automatic back-up")
+
+if [-z "$ga" ]; then
+  echo "Stage files failed, exit"
+  exit 1;
+fi
+
+if [ -z "$gc" ]; then
+  echo "Commit staged files failed, exit"
+  exit 1;
+fi
+
+gp=$(git push)
+
+if [ -z "$gp" ]; then
+  echo "Push commit failed, exit"
+  exit 1;
+fi
+
+echo "Pushed automated commit"
+

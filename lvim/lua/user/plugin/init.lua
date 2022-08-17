@@ -9,6 +9,9 @@ lvim.plugins = {
 		"folke/trouble.nvim",
 		cmd = "TroubleToggle",
 	},
+	{
+		"alvan/vim-closetag",
+	},
 	-- TODO and keywords in comment highlight
 	{
 		"folke/todo-comments.nvim",

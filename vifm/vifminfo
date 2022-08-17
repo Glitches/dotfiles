@@ -17,7 +17,7 @@
 # Bookmarks:
 
 # TUI:
-al
+ar
 q0
 v2
 ov
@@ -108,8 +108,17 @@ d/home/andrea/projects/facile/elephant/packages/backend/libs
 	company
 3
 d/home/andrea/projects/facile/elephant/packages/backend
-	test.pdf
-13
+	..
+0
+d/home/andrea/projects/facile/elephant/packages
+	..
+0
+d/home/andrea/projects/facile/elephant
+	scripts
+7
+d/home/andrea/projects/facile/elephant/scripts
+	..
+0
 d
 
 # Right window history (oldest to newest):
@@ -177,16 +186,46 @@ D/home/andrea/Documenti/Personali
 	Buste_Paga
 2
 D/home/andrea/Documenti
+	..
+0
+D/home/andrea
+	Scaricati
+18
+D/home/andrea/Scaricati
+	..
+0
+D/home/andrea
 	Documenti
-7
+9
+D/home/andrea/Documenti
+	Buste_Paga
+4
+D/home/andrea/Documenti/Buste_Paga
+	2022
+5
+D/home/andrea/Documenti/Buste_Paga/2022
+	..
+0
+D/home/andrea/Documenti/Buste_Paga
+	..
+0
+D/home/andrea/Documenti
+	..
+0
+D/home/andrea
+	Appimages
+3
+D/home/andrea/Appimages
+	..
+0
 D
 
 # Command line history (oldest to newest):
 :e prova.json
 :h
 :help
-:q
 :qa
+:q
 
 # Search history (oldest to newest):
 
